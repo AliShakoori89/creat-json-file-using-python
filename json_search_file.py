@@ -13,23 +13,23 @@ input_number_choice=int(input("1. enter num 1 , 2 or 3 : "))
 
 if input_number_choice==1:
 
-    d={}
-    c={}
+    all_Specifications_list={}
+    Specifications_list={}
 
     name = input('enter Name :  ')
     lastname = input('enter LastName :  ')
     birth = input('enter date of birth : ')
     id_num = input('enter id num :  ')
-    c={'Name':name,'LastName':lastname,'Birthday':birth}
-    d[id_num]=c
+    Specifications_list={'Name':name,'LastName':lastname,'Birthday':birth}
+    all_Specifications_list[id_num]=Specifications_list
 
     if not os.path.isfile('test.json'):
         with open('test.json','w')as f:
-            f.write(json.dumps(d))
+            f.write(json.dumps(all_Specifications_list))
     else:
         with open('test.json')as f:
             feeds=json.load(f)
-        feeds.update(d)
+        feeds.update(all_Specifications_list)
         with open('test.json','w') as f:
             f.write(json.dumps(feeds))
 
